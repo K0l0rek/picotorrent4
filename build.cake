@@ -44,9 +44,9 @@ Task("Generate-Project")
     {
         SourcePath = ".",
         OutputPath = OutputDirectory,
-        Generator = "Visual Studio 16 2019",
-        Platform = platform == "x86" ? "Win32" : "x64",
-        Toolset = "v142",
+        Generator = "Visual Studio 17 2022",
+        Platform = "x64",//platform == "x86" ? "Win32" : "x64",
+        Toolset = "v143",
         Options = new []
         {
             $"-DGITVERSION_VAR_BRANCHNAME={Version.BranchName}",
