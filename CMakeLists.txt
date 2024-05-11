@@ -1,4 +1,4 @@
-cmake_minimum_required(VERSION 3.21 FATAL_ERROR)
+cmake_minimum_required(VERSION 3.7.2 FATAL_ERROR)
 cmake_policy(SET CMP0092 NEW) # don't add /W3 as default
 cmake_policy(SET CMP0115 OLD) # Source file extensions must be explicit.
 
@@ -16,7 +16,7 @@ option(WITH_STATIC_CRT "" Off)
 
 # --------- wx options
 set(wxBUILD_SHARED        OFF   CACHE BOOL   "" FORCE)
-set(wxBUILD_COMPATIBILITY "3.1" CACHE STRING "" FORCE)
+set(wxBUILD_COMPATIBILITY "3.2" CACHE STRING "" FORCE)
 set(wxUSE_EXCEPTIONS      OFF   CACHE BOOL   "" FORCE)
 # --------------------
 
