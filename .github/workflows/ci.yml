@@ -37,7 +37,12 @@ jobs:
         run: dotnet tool restore
 
       - name: Build
-        run: dotnet cake --platform=${{ matrix.arch }} --target=Publish --vcpkg-triplet=${{ matrix.arch }}-windows-static-md-rel
+        run: |
+          vcpkg env
+          set HTTPS_PROXY=http://127.0.0.1:10809/
+          set HTTP_PROXY=http://127.0.0.1:10809/
+          vcpkg install boost:x64-windowsdotnet 
+          cake --platform=${{ matrix.arch }} --target=Publish --vcpkg-triplet=${{ matrix.arch }}-windows-static-md-rel
 
       - name: Upload artifacts
         uses: actions/upload-artifact@v2
