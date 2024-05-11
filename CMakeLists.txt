@@ -1,4 +1,4 @@
-cmake_minimum_required(VERSION 3.14 FATAL_ERROR)
+cmake_minimum_required(VERSION 3.10 FATAL_ERROR)
 set(CMAKE_BUILD_TYPE "Release" CACHE STRING "" FORCE)
 cmake_policy(SET CMP0092 NEW) # don't add /W3 as default
 cmake_policy(SET CMP0115 OLD) # Source file extensions must be explicit.
@@ -13,7 +13,7 @@ set(CMAKE_TOOLCHAIN_FILE   ${CMAKE_CURRENT_SOURCE_DIR}/vendor/vcpkg/scripts/buil
 
 project("PicoTorrent")
 
-set(CMAKE_CXX_STANDARD 22)
+set(CMAKE_CXX_STANDARD 20)
 
 # --------- antlr4 options
 option(WITH_STATIC_CRT "" Off)
