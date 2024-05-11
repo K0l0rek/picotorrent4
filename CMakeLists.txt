@@ -2,6 +2,7 @@ cmake_minimum_required(VERSION 3.14 FATAL_ERROR)
 set(CMAKE_BUILD_TYPE "Release" CACHE STRING "" FORCE)
 cmake_policy(SET CMP0092 NEW) # don't add /W3 as default
 cmake_policy(SET CMP0115 OLD) # Source file extensions must be explicit.
+set(CMAKE_POLICY_DEFAULT_CMP0077 NEW)
 set(VCPKG_TARGET_ARCHITECTURE x64)
 set(VCPKG_CRT_LINKAGE dynamic)
 set(VCPKG_LIBRARY_LINKAGE static)
