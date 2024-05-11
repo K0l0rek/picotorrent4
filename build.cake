@@ -195,11 +195,12 @@ Task("Build-Installer-Bundle")
         OutputDirectory = BuildDirectory
     });
 
-    WiXLight(BuildDirectory + File("PicoTorrentBundle.wixobj"), new LightSettings
-    {
-        Extensions = new [] { "WixBalExtension", "WixNetFxExtension", "WixUtilExtension" },
-        OutputFile = PackagesDirectory + File(InstallerBundle)
-    });
+    WiXLight(BuildDirectory + File("PicoTorrentBundle.wixobj").FullPath, new LightSettings
+{
+    Extensions = new [] { "WixBalExtension", "WixNetFxExtension", "WixUtilExtension" },
+    OutputFile = PackagesDirectory + File(InstallerBundle).FullPath
+});
+
 });
 
 Task("Build-Portable-Package")
