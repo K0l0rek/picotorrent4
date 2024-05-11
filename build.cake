@@ -68,7 +68,7 @@ Task("Build")
     var settings = new MSBuildSettings()
         .SetConfiguration(configuration)
         .SetMaxCpuCount(0)
-        .UseToolVersion(MSBuildToolVersion.VS2019);
+        .UseToolVersion(MSBuildToolVersion.VS2022);
 
     if(platform == "x86")
     {
