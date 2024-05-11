@@ -1,4 +1,4 @@
-#addin "nuget:?package=Cake.CMake&version=1.2.0"
+#addin "nuget:?package=Cake.CMake&version=3.7.2"
 #tool  "nuget:?package=GitVersion.CommandLine&version=5.3.7"
 #tool  "nuget:?package=WiX&version=3.11.2"
 
@@ -164,7 +164,7 @@ Task("Build-Installer-Bootstrapper")
     var settings = new MSBuildSettings()
         .SetConfiguration(configuration)
         .SetMaxCpuCount(0)
-        .UseToolVersion(MSBuildToolVersion.VS2019);
+        .UseToolVersion(MSBuildToolVersion.VS2022);
 
     MSBuild("./src/installer/PicoTorrentBootstrapper.sln", settings);
 });
