@@ -49,6 +49,7 @@ Task("Generate-Project")
         Toolset = "v143",
         Options = new []
         {
+            
             $"-DGITVERSION_VAR_BRANCHNAME={Version.BranchName}",
             $"-DGITVERSION_VAR_SEMVER={Version.SemVer}",
             $"-DGITVERSION_VAR_SHORTSHA={Version.Sha.Substring(0,7)}",
