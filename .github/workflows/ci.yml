@@ -12,7 +12,7 @@ jobs:
     runs-on: ${{ matrix.os }}
     strategy:
       matrix:
-        arch: [x86, x64]
+        arch: [x64]
         os: [windows-latest]
 
     steps:
@@ -22,6 +22,16 @@ jobs:
         run: |
           git fetch --prune --unshallow
           git submodule update --init --recursive
+      - name: Setup vcpkg
+        run: .\vendor\vcpkg\bootstrap-vcpkg.bat
+
+      - name: Install vcpkg ports
+        run: |
+          .\vendor\vcpkg\vcpkg.exe install boost-log:${{ matrix.arch }}-windows-static-md
+          .\vendor\vcpkg\vcpkg.exe install fmt:${{ matrix.arch }}-windows-static-md
+          .\vendor\vcpkg\vcpkg.exe install libtorrent:${{ matrix.arch }}-windows-static-md
+          .\vendor\vcpkg\vcpkg.exe install nlohmann-json:${{ matrix.arch }}-windows-static-md
+          .\vendor\vcpkg\vcpkg.exe install sqlite3:${{ matrix.arch }}-windows-static-md
 
       - name: Restore .NET tools
         run: dotnet tool restore
